@@ -1,0 +1,49 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "icons:kills.png",
+            "ascent": 3,
+            "height": 16,
+            "chars": [
+                "\u0001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:alive.png",
+            "ascent": 3,
+            "height": 16,
+            "chars": [
+                "\u0002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:fall.png",
+            "ascent": 3,
+            "height": 16,
+            "chars": [
+                "\u0003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:clock.png",
+            "ascent": 3,
+            "height": 16,
+            "chars": [
+                "\u0004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:storm.png",
+            "ascent": 3,
+            "height": 16,
+            "chars": [
+                "\u0005"
+            ]
+        }
+    ]
+}
