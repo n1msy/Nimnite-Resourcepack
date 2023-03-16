@@ -16,12 +16,14 @@ uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
 uniform mat3 IViewRotMat;
 uniform int FogShape;
-uniform vec2 ScreenSize;
 
 out float vertexDistance;
 out vec4 vertexColor;
 out vec2 texCoord0;
 
+flat out float oldOffset;
+flat out float offset;
+flat out int serverTime;
 flat out int type;
 flat out vec4 ogColor;
 
@@ -171,7 +173,6 @@ void main() {
     bool marker = texture(Sampler0, texCoord0) * 255 == vec4(173, 152, 193, 102);
     if (map || marker) {
         vec2 pixel = guiPixel(ProjMat);
-        vec4 oldPos = gl_Position;
 
         gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 0), 1.0);
         gl_Position.x *= -1;
@@ -188,7 +189,20 @@ void main() {
             gl_Position.xy = rotate(gl_Position.xy / pixel.xy, center / pixel.xy, Color.r*PI*2) * pixel.xy;
             type = MARKER_TYPE;
         }
-    } 
+    // [ COMPASS ]
+    } else if (texture(Sampler0, vec2(0, 0)) * 255 == vec4(9, 185, 21, 102)) {
+        vec2 pixel = guiPixel(ProjMat);
+
+        gl_Position = ProjMat * ModelViewMat * vec4(0, 0, 0, 1.0);
+        gl_Position.x += gl_Position.w;
+        gl_Position.y += pixel.y * 70;
+        gl_Position.xy += pixel * corners[gl_VertexID % 4] * ivec2(48, 12) * 3;
+
+        type = COMPASS_TYPE;
+        offset = (Color.r * 255 + mod(Color.b * 255, 4) * 256) / 1024.;
+        oldOffset = (Color.g * 255 + (int(Color.b * 255) % 16)/ 4 * 256) / 1024.;
+        serverTime = int(Color.b * 255) % 64 / 16;
+    }
     if (type != -1 && Position.z == 0) {
         type = DELETE_TYPE;
     }

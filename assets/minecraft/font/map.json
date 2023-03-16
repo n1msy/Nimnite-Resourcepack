@@ -188,6 +188,15 @@
             "chars": [
                 "\uA016"
             ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minimap:compass_line.png",
+            "ascent": 0,
+            "height": 0,
+            "chars": [
+                "\uB000"
+            ]
         }
     ]
 }
