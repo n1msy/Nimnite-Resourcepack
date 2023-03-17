@@ -102,6 +102,7 @@ void main() {
         float tickDelta = fract(GameTime * 24000);
         if (serverTime != int(GameTime * 24000) % 4) tickDelta = 1;
 
+        vec2 newCoord = texCoord0 * vec2(96/256., 1) + vec2(-48/256. + mix(oldOffset, getCloser(offset, <<<<<<< HEAD
         vec2 newCoord = texCoord0 * vec2(96/256., 1) + vec2(-48/256. + mix(oldOffset, getCloser(offset, oldOffset), tickDelta) + 0.5, 0);
 
         fragColor = texture(Sampler0, newCoord);
@@ -119,5 +120,4 @@ void main() {
         }
 
     }
-
-}
+    
