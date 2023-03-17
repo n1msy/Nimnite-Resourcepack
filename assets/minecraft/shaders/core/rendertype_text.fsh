@@ -19,6 +19,9 @@ in float vertexDistance;
 in vec4 vertexColor;
 in vec2 texCoord0;
 
+flat in float oldOffset;
+flat in float offset;
+flat in int serverTime;
 flat in int type;
 flat in vec4 ogColor;
 
@@ -34,10 +37,19 @@ vec2 rotate(vec2 point, vec2 center, float rot) {
     return vec2(x, y);
 }
 
+float getCloser(float a, float b) {
+    float diff = b - a;
+    if (abs(diff) > 0.5) {
+        return a + sign(diff);
+    } else {
+        return a;
+    }
+}
+
 void main() {
     // vanilla 
     vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
-    if (color.a < 0.1 || type == DELETE_TYPE) {
+    if ((color.a < 0.1 && type == -1) || type == DELETE_TYPE) {
         discard;
     }
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
@@ -86,6 +98,26 @@ void main() {
     } else if (type == MARKER_TYPE) {
         fragColor = texture(Sampler0, texCoord0);
         if (fragColor * 255 == vec4(173, 152, 193, 102)) discard;
+    } else if (type == COMPASS_TYPE) {
+        float tickDelta = fract(GameTime * 24000);
+        if (serverTime != int(GameTime * 24000) % 4) tickDelta = 1;
+
+        vec2 newCoord = texCoord0 * vec2(96/256., 1) + vec2(-48/256. + mix(oldOffset, getCloser(offset, oldOffset), tickDelta) + 0.5, 0);
+
+        fragColor = texture(Sampler0, newCoord);
+        if (fragColor.a < 0.1 || fragColor * 255 == vec4(9, 185, 21, 102))
+            discard;
+
+        //fade out effect
+        if (texCoord0.x <= 0.05) 
+        {
+            fragColor = vec4(1, 1, 1, (1-newCoord.x));
+        }
+        else if (texCoord0.x >= 0.95)
+        {
+            fragColor = vec4(1, 1, 1, newCoord.x);
+        }
+
     }
 
 }
