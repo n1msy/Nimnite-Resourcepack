@@ -10,4 +10,12 @@ void getInfoFromColor(vec4 color) {
 #define MAP_TYPE 1
 #define MARKER_TYPE 2
 #define COMPASS_TYPE 3
-#define LINE_TYPE 4
+#define CIRCLE_TYPE 4
+
+#define oldOffset f1
+#define offset f2
+#define serverTime i1
+
+#define stormId i1
+#define relX i2
+#define relY i3

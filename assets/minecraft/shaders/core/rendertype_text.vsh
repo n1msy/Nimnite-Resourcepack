@@ -21,9 +21,15 @@ out float vertexDistance;
 out vec4 vertexColor;
 out vec2 texCoord0;
 
-flat out float oldOffset;
-flat out float offset;
-flat out int serverTime;
+out vec2 pos;
+
+flat out float f1;
+flat out float f2;
+flat out int i1;
+flat out int i2;
+flat out int i3;
+
+flat out float xOffset;
 flat out int type;
 flat out vec4 ogColor;
 
@@ -202,8 +208,10 @@ void main() {
         offset = (Color.r * 255 + mod(Color.b * 255, 4) * 256) / 1024.;
         oldOffset = (Color.g * 255 + (int(Color.b * 255) % 16)/ 4 * 256) / 1024.;
         serverTime = int(Color.b * 255) % 64 / 16;
+    // [ PREVIEW CIRCLE ]
     } else if (texture(Sampler0, texCoord0) * 255 == vec4(157, 146, 163, 102)) {
         vec2 pixel = guiPixel(ProjMat);
+        xOffset = gl_Position.x / pixel.x;
 
         gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 0), 1.0);
         gl_Position.x *= -1;
@@ -211,12 +219,15 @@ void main() {
         gl_Position.x += -pixel.x * (margin + mapSize);
         gl_Position.y += pixel.y * (margin + mapSize);
         gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * mapSize;
-        //vec2 center = gl_Position.xy;
+        pos = corners[gl_VertexID % 4];
 
-        //gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * 8;
-        //gl_Position.xy = rotate(gl_Position.xy / pixel.xy, center / pixel.xy, Color.r*PI*2) * pixel.xy;
+        // read data
+        ivec3 c = ivec3(ogColor.rgb * 255.);
+        relX = c.r + (c.b % 8) * 256 - 1024;
+        relY = c.g + (c.b % 64 / 8) * 256 - 1024;
+        stormId = int(round(xOffset))/2 + (c.b / 64) * 4;
 
-        type = LINE_TYPE;
+        type = CIRCLE_TYPE;
     }
 
     if (type != -1 && Position.z == 0) {

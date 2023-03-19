@@ -19,9 +19,15 @@ in float vertexDistance;
 in vec4 vertexColor;
 in vec2 texCoord0;
 
-flat in float oldOffset;
-flat in float offset;
-flat in int serverTime;
+in vec2 pos;
+
+flat in float f1;
+flat in float f2;
+flat in int i1;
+flat in int i2;
+flat in int i3;
+
+flat in float xOffset;
 flat in int type;
 flat in vec4 ogColor;
 
@@ -114,8 +120,14 @@ void main() {
 
         fragColor.a *= min(texCoord0.x/fadeTo, 1) - max((texCoord0.x-1+fadeTo)/fadeTo, 0);
 
-    } else if (type == LINE_TYPE) {
-        fragColor = vec4(1,0,0,1);
-        if (fragColor * 255 == vec4(157, 146, 163, 102)) discard;
+    } else if (type == CIRCLE_TYPE) {
+        vec2 circlePos = vec2(relX, relY) / 128.;
+
+        // if its inside 128 block radius circle then red
+        if (length(circlePos-pos*(1-zoom)) < 1) 
+            fragColor = vec4(1, 0, stormId/255., 1);
+        else 
+            discard;
+        //fragColor = vec4(1, 0, 0, 1-length(circlePos-pos)/2);
     }
 }
