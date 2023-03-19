@@ -202,7 +202,7 @@ void main() {
         offset = (Color.r * 255 + mod(Color.b * 255, 4) * 256) / 1024.;
         oldOffset = (Color.g * 255 + (int(Color.b * 255) % 16)/ 4 * 256) / 1024.;
         serverTime = int(Color.b * 255) % 64 / 16;
-    } else if (texture(Sampler0, vec2(0, 0)) * 255 == vec4(157, 146, 163, 102)) {
+    } else if (texture(Sampler0, texCoord0) * 255 == vec4(157, 146, 163, 102)) {
         vec2 pixel = guiPixel(ProjMat);
 
         gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 0), 1.0);
@@ -210,6 +210,7 @@ void main() {
 
         gl_Position.x += -pixel.x * (margin + mapSize);
         gl_Position.y += pixel.y * (margin + mapSize);
+        gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * mapSize;
         //vec2 center = gl_Position.xy;
 
         //gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * 8;
