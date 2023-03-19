@@ -10,3 +10,4 @@ void getInfoFromColor(vec4 color) {
 #define MAP_TYPE 1
 #define MARKER_TYPE 2
 #define COMPASS_TYPE 3
+#define LINE_TYPE 4

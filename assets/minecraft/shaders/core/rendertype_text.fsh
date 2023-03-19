@@ -30,6 +30,9 @@ out vec4 fragColor;
 //default = 0.5
 const float zoom = 0.5; 
 
+//slider fade
+const float fadeTo = 0.1;
+
 vec2 rotate(vec2 point, vec2 center, float rot) {
 	float x = center.x + (point.x-center.x)*cos(rot) - (point.y-center.y)*sin(rot);
     float y = center.y + (point.x-center.x)*sin(rot) + (point.y-center.y)*cos(rot);
@@ -102,22 +105,17 @@ void main() {
         float tickDelta = fract(GameTime * 24000);
         if (serverTime != int(GameTime * 24000) % 4) tickDelta = 1;
 
-        vec2 newCoord = texCoord0 * vec2(96/256., 1) + vec2(-48/256. + mix(oldOffset, getCloser(offset, oldOffset), tickDelta) + 0.5, 0);
+        vec2 sliderOffset = vec2(-48/256. + mix(oldOffset, getCloser(offset, oldOffset), tickDelta) + 0.5, 0);
+        vec2 newCoord = texCoord0 * vec2(96/256., 1) + sliderOffset;
 
         fragColor = texture(Sampler0, newCoord);
         if (fragColor.a < 0.1 || fragColor * 255 == vec4(9, 185, 21, 102))
             discard;
 
-        /*
-        //fade out effect
-        if (texCoord0.x <= 0.05) 
-        {
-            fragColor = vec4(1, 1, 1, (1-newCoord.x));
-        }
-        else if (texCoord0.x >= 0.95)
-        {
-            fragColor = vec4(1, 1, 1, newCoord.x);
-        }*/
+        fragColor.a *= min(texCoord0.x/fadeTo, 1) - max((texCoord0.x-1+fadeTo)/fadeTo, 0);
 
+    } else if (type == LINE_TYPE) {
+        fragColor = vec4(1,0,0,1);
+        if (fragColor * 255 == vec4(157, 146, 163, 102)) discard;
     }
 }

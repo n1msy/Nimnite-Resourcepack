@@ -47,6 +47,15 @@
         },
         {
             "type": "bitmap",
+            "file": "minimap:line.png",
+            "ascent": 0,
+            "height": 0,
+            "chars": [
+                "\uE001"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "minimap:split/map_split0.png",
             "ascent": 32,
             "height": 64,
