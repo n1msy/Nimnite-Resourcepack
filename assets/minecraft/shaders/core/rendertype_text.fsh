@@ -39,13 +39,6 @@ const float zoom = 0.5;
 //slider fade
 const float fadeTo = 0.1;
 
-vec2 rotate(vec2 point, vec2 center, float rot) {
-	float x = center.x + (point.x-center.x)*cos(rot) - (point.y-center.y)*sin(rot);
-    float y = center.y + (point.x-center.x)*sin(rot) + (point.y-center.y)*cos(rot);
-
-    return vec2(x, y);
-}
-
 float getCloser(float a, float b) {
     float diff = b - a;
     if (abs(diff) > 0.5) {
@@ -125,36 +118,24 @@ void main() {
         fragColor.a *= min(texCoord0.x/fadeTo, 1) - max((texCoord0.x-1+fadeTo)/fadeTo, 0);
 
     } else if (type == CIRCLE_TYPE) {
-        vec2 circlePos = vec2(relX, relY) / 128.;
+        vec2 circlePos = vec2(relX, relY) / 128.; // 1 is 128 blocks
+        vec2 zoomedPos = pos * (1-zoom);
 
-
-        //line
+        // distance from line
         float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
-        // if its inside 128 block radius circle then red
-
         //circle
-        if (length(circlePos-pos*(1-zoom)) < 1 && length(circlePos-pos*(1-zoom)) > 0.98){
+        if (length(circlePos - zoomedPos) < 1 && length(circlePos - zoomedPos) > 0.98) {
             fragColor = vec4(1, 0, stormId/255., 1);
-        }
         //line 
-        else if (dist < 0.02 && length(circlePos-pos*(1-zoom)) > 0.98){
-            if (pos.y > circlePos.y && pos.y > 0){
-                discard;
-            } else if (pos.y < circlePos.y && pos.y < 0){
-                discard;
-            } else if (pos.x > circlePos.x && pos.x > 0){
-                discard;
-            } else if (pos.x < circlePos.x && pos.x < 0){
-                discard;
-            } else{
+        } else if (dist < 0.02 && length(circlePos - zoomedPos) > 0.98) {
+            if (length(circlePos) > length(circlePos - zoomedPos)) {
                 fragColor = vec4(1, 1, 1, 1);
-            }
-
-        }
-        else{
+            } else
+                discard;
+        } else 
             discard;
-        }
+        
 
         //else discard;
         //remove anything behind the marker (0,0)
