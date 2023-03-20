@@ -209,7 +209,7 @@ void main() {
         oldOffset = (Color.g * 255 + (int(Color.b * 255) % 16)/ 4 * 256) / 1024.;
         serverTime = int(Color.b * 255) % 64 / 16;
     // [ PREVIEW CIRCLE ]
-    } else if (texture(Sampler0, texCoord0) * 255 == vec4(157, 146, 163, 102)) {
+    } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(157, 146, 163, 102)) {
         vec2 pixel = guiPixel(ProjMat);
         xOffset = gl_Position.x / pixel.x;
 
