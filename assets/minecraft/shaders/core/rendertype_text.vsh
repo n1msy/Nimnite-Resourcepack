@@ -65,41 +65,6 @@ vec3 getColor(int i) {
     //  return vec3(255, 0, 0)/255.;
     //  break;
 
-    case 4: case 6: case 8: case 10: case 12:
-        return vec3(179, 255, 156)/255.;
-        break;
- 
-    case 2: case 5: case 7: case 9: case 11: case 13:
-        return vec3(222, 222, 222)/255.;
-        break;
-
-    case 16:
-        return vec3(96, 224, 254)/255.;
-        break;
-
-    //empty health top UI and slot "NotSel" colors
-    case 25: case 52: case 53: case 54: case 261:
-        return vec3(170, 170, 170)/255.;
-        break;
-
-    //top left/right "dead" colors
-    case 32: case 33:
-        return vec3(200, 200, 200)/255.;
-        break;
-
-    //ability/ult point full
-    case 38: case 40:
-        return vec3(84, 242, 187)/255.;
-        break;
-
-    case 241:
-        return vec3(252, 232, 40)/255.;
-        break;
-
-    case 251:
-        return vec3(0, 240, 17)/255.;
-        break;
-
     default:
         return vec3(1, 1, 1);
         break;
@@ -114,7 +79,9 @@ const int shield = 11;
 const int ammo = 12;
 
 //Top right (below minimap)
-const int stats = 50;
+const int time = 50;
+const int alive = 51;
+const int kills = 52;
 
 //Bottom right
 const int build = 30;
@@ -159,13 +126,13 @@ void main() {
         switch (int(Color.r*255))
         {
             //Agent Select Menu
-            case stats:
+            //case stats:
 
-                gl_Position.x += pixel.x * -6;
-                gl_Position.y += gl_Position.w * 1 - pixel.y * -300;
+                //gl_Position.x += pixel.x * -6;
+                //gl_Position.y += gl_Position.w * 1 - pixel.y * -300;
 
-                vertexColor.rgb = getColor(int(Color.r*255));
-                break;
+                //vertexColor.rgb = getColor(int(Color.r*255));
+                //break;
 
             default:
                 break;

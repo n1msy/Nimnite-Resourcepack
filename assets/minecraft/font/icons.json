@@ -44,6 +44,60 @@
             "chars": [
                 "\u0005"
             ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:wood.png",
+            "ascent": 3,
+            "height": 22,
+            "chars": [
+                "\uA001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:brick.png",
+            "ascent": 3,
+            "height": 22,
+            "chars": [
+                "\uA002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:metal.png",
+            "ascent": 3,
+            "height": 22,
+            "chars": [
+                "\uA003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:empty_slot.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uB000"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:full_slot.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uB001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:health_bar_empty.png",
+            "ascent": 114,
+            "height": 220,
+            "chars": [
+                "\uC000"
+            ]
         }
     ]
 }
