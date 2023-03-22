@@ -107,6 +107,14 @@ void main() {
     vertexColor = Color * texelFetch(Sampler2, UV2 / 16, 0);
     texCoord0 = UV0;
 
+    //SHADOW REMOVER Cred: PuckiSilver
+    //Use this color code to remove it: #4e5c24
+    if (Color == vec4(78/255., 92/255., 36/255., Color.a) && Position.z == 0.03) {
+        vertexColor = texelFetch(Sampler2, UV2 / 16, 0); // remove color from no shadow marker
+    } else if (Color == vec4(19/255., 23/255., 9/255., Color.a) && Position.z == 0) {
+        vertexColor = vec4(0); // remove shadow
+    }
+
     // [ HUD ]
     // Text Offsets
     if (Color.r > 0 && Color.g == 0 && Color.b == 0)
@@ -161,8 +169,8 @@ void main() {
                 break;
 
             case player_1:
-                gl_Position.x += gl_Position.w * -1 + pixel.x;
-                gl_Position.y += gl_Position.w - pixel.y * -40;
+                gl_Position.x += gl_Position.w * -2 + pixel.x * 660;
+                gl_Position.y += gl_Position.w - pixel.y * -20;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
@@ -236,7 +244,7 @@ void main() {
 
         gl_Position = ProjMat * ModelViewMat * vec4(0, 0, 0, 1.0);
         gl_Position.x += gl_Position.w;
-        gl_Position.y += pixel.y * 70;
+        gl_Position.y += pixel.y * 60;
         gl_Position.xy += pixel * corners[gl_VertexID % 4] * ivec2(48, 12) * 3;
 
         type = COMPASS_TYPE;
