@@ -48,8 +48,8 @@
         {
             "type": "bitmap",
             "file": "icons:wood.png",
-            "ascent": 3,
-            "height": 22,
+            "ascent": 24,
+            "height": 24,
             "chars": [
                 "\uA001"
             ]
@@ -57,8 +57,8 @@
         {
             "type": "bitmap",
             "file": "icons:brick.png",
-            "ascent": 3,
-            "height": 22,
+            "ascent": 24,
+            "height": 24,
             "chars": [
                 "\uA002"
             ]
@@ -66,8 +66,8 @@
         {
             "type": "bitmap",
             "file": "icons:metal.png",
-            "ascent": 3,
-            "height": 22,
+            "ascent": 24,
+            "height": 24,
             "chars": [
                 "\uA003"
             ]
@@ -97,6 +97,24 @@
             "height": 220,
             "chars": [
                 "\uC000"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:health_bar_empty_small.png",
+            "ascent": 44,
+            "height": 105,
+            "chars": [
+                "\uC001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:shield_bar_empty_small.png",
+            "ascent": 49,
+            "height": 105,
+            "chars": [
+                "\uC002"
             ]
         }
     ]

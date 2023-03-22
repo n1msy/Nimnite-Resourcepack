@@ -126,7 +126,8 @@ void main() {
 
         //circle
         if (length(circlePos - zoomedPos) < 1 && length(circlePos - zoomedPos) > 0.98) {
-            fragColor = vec4(1, 0, stormId/255., 1);
+            //fragColor = vec4(0, 0, stormId/255., 1);
+            fragColor = vec4(1, 1, 1, 1);
         //line 
         } else if (dist < 0.02 && length(circlePos - zoomedPos) > 0.98) {
             if (length(circlePos) > length(circlePos - zoomedPos)) {

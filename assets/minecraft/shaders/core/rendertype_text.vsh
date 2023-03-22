@@ -88,23 +88,15 @@ const int build = 30;
 const int inv = 20;
 
 //Right center (mats)
-const int mat_icons = 40;
 const int mat_wood = 41;
 const int mat_brick = 42;
 const int mat_metal = 43;
 
 //Top left
-const int p1_health_name = 60;
-const int p1_health_bar = 61;
-
-const int p2_health_name = 62;
-const int p2_health_bar = 63;
-
-const int p3_health_name = 64;
-const int p3_health_bar = 65;
-
-const int p4_health_name = 66;
-const int p4_health_bar = 67;
+const int player_1 = 61;
+const int player_2 = 62;
+const int player_3 = 63;
+const int player_4 = 64;
 
 void main() {
     ogColor = Color;
@@ -125,14 +117,90 @@ void main() {
 
         switch (int(Color.r*255))
         {
-            //Agent Select Menu
-            //case stats:
 
-                //gl_Position.x += pixel.x * -6;
-                //gl_Position.y += gl_Position.w * 1 - pixel.y * -300;
+            case mat_wood:
+                gl_Position.x += pixel.x * 365;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 304;
 
-                //vertexColor.rgb = getColor(int(Color.r*255));
-                //break;
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case mat_brick:
+                gl_Position.x += pixel.x * 445;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 322;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case mat_metal:
+                gl_Position.x += pixel.x * 525;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 340;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case time:
+                gl_Position.x += pixel.x * 332;
+                gl_Position.y += gl_Position.w * 1 - pixel.y * -315;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case alive:
+                gl_Position.x += pixel.x * 438;
+                gl_Position.y += gl_Position.w * 1 - pixel.y * -297;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case kills:
+                gl_Position.x += pixel.x * 542;
+                gl_Position.y += gl_Position.w * 1 - pixel.y * -279;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case player_1:
+                gl_Position.x += gl_Position.w * -1 + pixel.x;
+                gl_Position.y += gl_Position.w - pixel.y * -40;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case ammo:
+                gl_Position.x += gl_Position.w * -1 + pixel.x * 550;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 60;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case shield:
+                gl_Position.x += gl_Position.w * -1 + pixel.x * 380;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -5;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case health:
+                gl_Position.x += gl_Position.w * -1 + pixel.x * 380;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -15;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case inv:
+                gl_Position.x += pixel.x * 15;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 75;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case build:
+                gl_Position.x += pixel.x * 117;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 175;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
 
             default:
                 break;
