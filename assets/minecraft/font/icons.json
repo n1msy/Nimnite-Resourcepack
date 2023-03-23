@@ -57,28 +57,55 @@
         {
             "type": "bitmap",
             "file": "icons:wood.png",
-            "ascent": 24,
-            "height": 24,
+            "ascent": 40,
+            "height": 52,
             "chars": [
                 "\uA001"
             ]
         },
         {
             "type": "bitmap",
+            "file": "icons:wood_selected.png",
+            "ascent": 40,
+            "height": 52,
+            "chars": [
+                "\uA011"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:brick.png",
-            "ascent": 24,
-            "height": 24,
+            "ascent": 40,
+            "height": 52,
             "chars": [
                 "\uA002"
             ]
         },
         {
             "type": "bitmap",
+            "file": "icons:brick_selected.png",
+            "ascent": 40,
+            "height": 52,
+            "chars": [
+                "\uA022"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:metal.png",
-            "ascent": 24,
-            "height": 24,
+            "ascent": 40,
+            "height": 52,
             "chars": [
                 "\uA003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:metal_selected.png",
+            "ascent": 40,
+            "height": 52,
+            "chars": [
+                "\uA033"
             ]
         },
         {
@@ -124,6 +151,24 @@
             "height": 105,
             "chars": [
                 "\uC002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:shield.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uC003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:health.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uC004"
             ]
         }
     ]
