@@ -147,6 +147,28 @@ void main() {
 
         //fragColor = vec4(1, 0, 0, 1-length(circlePos-pos)/2);
     } else if (type == HEALTH_TYPE){
-        fragColor = vec4(1, 1, 1, 1);
+
+        //returns 0 to 1
+        float health = ogColor.r;
+        vec4 barColor;
+
+        if (ogColor.b*255. == 0.){
+            //health color
+            barColor = vec4(90/255.,196/255.,55/255.,1);
+        } else{
+            //shield color
+            barColor = vec4(39/255.,158/255.,214/255.,1);
+        }
+
+        fragColor = texture(Sampler0, texCoord0);
+
+        //health bar
+        if (pos.x <= health && fragColor.a != 0){
+            fragColor = barColor;
+        }
+
+        //remove the corner encoded pixels
+        if (fragColor.a == 58/255.) discard;
+
     }
 }

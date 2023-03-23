@@ -274,11 +274,24 @@ void main() {
         type = CIRCLE_TYPE;
     // [ HEALTH BAR ]
     } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(163, 93, 35, 58)) {
+        vec2 pixel = guiPixel(ProjMat);
 
+        gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
+
+        //0 = health
+        //1 = shield
+
+        if (Color.b*255. == 0.){
+            gl_Position.y += gl_Position.w * -1 - pixel.y * -15;
+        } else{
+            gl_Position.y += gl_Position.w * -1 - pixel.y * -5;
+        }
+
+        pos = (corners[gl_VertexID % 4] / 2.) + 0.5;
         type = HEALTH_TYPE;
     }
 
-    if (type != -1 && Position.z == 0) {
+    if (type > -1 && Position.z == 0) {
         type = DELETE_TYPE;
     }
 

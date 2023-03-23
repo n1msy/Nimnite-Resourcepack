@@ -6,12 +6,12 @@ void getInfoFromColor(vec4 color) {
     displayId = int(color.b * 255);
 }
 
+#define HEALTH_TYPE -2
 #define DELETE_TYPE 0
 #define MAP_TYPE 1
 #define MARKER_TYPE 2
 #define COMPASS_TYPE 3
 #define CIRCLE_TYPE 4
-#define HEALTH_TYPE 5
 
 #define oldOffset f1
 #define offset f2
