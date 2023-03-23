@@ -146,5 +146,7 @@ void main() {
         if (any(lessThan(pos/2+0.5, vec2(0.01, 0.01))) || any(greaterThan(pos/2+0.5, vec2(0.99, 0.99)))) discard;
 
         //fragColor = vec4(1, 0, 0, 1-length(circlePos-pos)/2);
+    } else if (type == HEALTH_TYPE){
+        fragColor = vec4(1, 1, 1, 1);
     }
 }

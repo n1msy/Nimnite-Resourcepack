@@ -11,6 +11,7 @@ void getInfoFromColor(vec4 color) {
 #define MARKER_TYPE 2
 #define COMPASS_TYPE 3
 #define CIRCLE_TYPE 4
+#define HEALTH_TYPE 5
 
 #define oldOffset f1
 #define offset f2

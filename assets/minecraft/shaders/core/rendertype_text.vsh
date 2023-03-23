@@ -272,6 +272,10 @@ void main() {
         stormId = int(round(xOffset))/2 + (c.b / 64) * 4;
 
         type = CIRCLE_TYPE;
+    // [ HEALTH BAR ]
+    } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(163, 93, 35, 58)) {
+
+        type = HEALTH_TYPE;
     }
 
     if (type != -1 && Position.z == 0) {
