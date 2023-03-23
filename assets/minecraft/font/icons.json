@@ -105,7 +105,7 @@
             "ascent": 40,
             "height": 52,
             "chars": [
-                "\uA033"
+                "\uA003"
             ]
         },
         {
@@ -169,6 +169,123 @@
             "height": 8,
             "chars": [
                 "\uC004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:wall.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uD001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:wall_selected.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uD011"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:floor.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uD002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:floor_selected.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uD022"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:stair.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uD003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:stair_selected.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uD033"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:pyramid.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uD004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:pyramid_selected.png",
+            "ascent": 3,
+            "height": 46,
+            "chars": [
+                "\uD044"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:light.png",
+            "ascent": 0,
+            "height": 16,
+            "chars": [
+                "\uE001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:medium.png",
+            "ascent": 0,
+            "height": 16,
+            "chars": [
+                "\uE002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:heavy.png",
+            "ascent": 0,
+            "height": 16,
+            "chars": [
+                "\uE003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:shells.png",
+            "ascent": 0,
+            "height": 16,
+            "chars": [
+                "\uE004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:rocket.png",
+            "ascent": 0,
+            "height": 16,
+            "chars": [
+                "\uE005"
             ]
         }
     ]
