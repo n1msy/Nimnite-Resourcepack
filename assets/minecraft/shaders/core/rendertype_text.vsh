@@ -245,7 +245,7 @@ void main() {
         gl_Position = ProjMat * ModelViewMat * vec4(0, 0, 0, 1.0);
         gl_Position.x += gl_Position.w;
         gl_Position.y += pixel.y * 60;
-        gl_Position.xy += pixel * corners[gl_VertexID % 4] * ivec2(48, 12) * 3;
+        gl_Position.xy += pixel * corners[gl_VertexID % 4] * ivec2(COMPASS_WIDTH * 0.5, 12) * 3;
 
         type = COMPASS_TYPE;
         offset = (Color.r * 255 + mod(Color.b * 255, 4) * 256) / 1024.;

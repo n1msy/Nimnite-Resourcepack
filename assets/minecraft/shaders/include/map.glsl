@@ -19,3 +19,5 @@ void getInfoFromColor(vec4 color) {
 #define stormId i1
 #define relX i2
 #define relY i3
+
+#define COMPASS_WIDTH 96
