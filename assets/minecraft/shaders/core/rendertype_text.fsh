@@ -162,6 +162,9 @@ void main() {
 
         fragColor = texture(Sampler0, texCoord0);
 
+        //remove the corner encoded pixels
+        if (fragColor.a == 58/255.) discard;
+
         //health bar
         if (pos.x <= health && fragColor.a != 0){
             fragColor = barColor;

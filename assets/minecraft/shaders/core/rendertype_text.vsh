@@ -55,27 +55,13 @@ vec2 rotate(vec2 point, vec2 center, float rot) {
     return vec2(x, y);
 }
 
-
-//Each offset has one dedicated color (?)
-vec3 getColor(int i) {
-  switch (i) {
-
-    //red
-    //case 1:
-    //  return vec3(255, 0, 0)/255.;
-    //  break;
-
-    default:
-        return vec3(1, 1, 1);
-        break;
-  }
-}
-
 #define PI 3.1415926535
 
 //Bottom center
 const int health = 10;
+const int health_max = 101;
 const int shield = 11;
+const int shield_max = 111;
 const int ammo = 12;
 
 //Top right (below minimap)
@@ -97,6 +83,29 @@ const int player_1 = 61;
 const int player_2 = 62;
 const int player_3 = 63;
 const int player_4 = 64;
+
+//Each offset has one dedicated color (?)
+vec3 getColor(int i) {
+  switch (i) {
+
+    //red
+    //case 1:
+    //  return vec3(255, 0, 0)/255.;
+    //  break;
+
+    case shield_max:
+        return vec3(186, 233, 255)/255.;
+        break;
+
+    case health_max:
+        return vec3(209, 255, 196)/255.;
+        break;
+
+    default:
+        return vec3(1, 1, 1);
+        break;
+  }
+}
 
 void main() {
     ogColor = Color;
@@ -182,7 +191,7 @@ void main() {
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
-            case shield:
+            case shield: case shield_max:
                 gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * -5;
 
@@ -190,7 +199,7 @@ void main() {
 
                 break;
 
-            case health:
+            case health: case health_max:
                 gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * -15;
 
@@ -276,15 +285,21 @@ void main() {
     } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(163, 93, 35, 58)) {
         vec2 pixel = guiPixel(ProjMat);
 
-        gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
-
         //0 = health
         //1 = shield
 
-        if (Color.b*255. == 0.){
-            gl_Position.y += gl_Position.w * -1 - pixel.y * -15;
+        //big health bar
+        if (Color.g*255 == 0.){
+            gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
+            if (Color.b*255. == 0.){
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -15;
+            } else{
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -5;
+            }
+        //small corner health bar
         } else{
-            gl_Position.y += gl_Position.w * -1 - pixel.y * -5;
+            gl_Position.x += gl_Position.w * -2 + pixel.x * 660;
+            gl_Position.y += gl_Position.w - pixel.y * -20;
         }
 
         pos = (corners[gl_VertexID % 4] / 2.) + 0.5;
