@@ -120,7 +120,7 @@
         {
             "type": "bitmap",
             "file": "icons:full_slot.png",
-            "ascent": 3,
+            "ascent": 5,
             "height": 46,
             "chars": [
                 "\uB001"
@@ -183,7 +183,7 @@
         {
             "type": "bitmap",
             "file": "icons:wall_selected.png",
-            "ascent": 3,
+            "ascent": 5,
             "height": 46,
             "chars": [
                 "\uD011"
@@ -201,7 +201,7 @@
         {
             "type": "bitmap",
             "file": "icons:floor_selected.png",
-            "ascent": 3,
+            "ascent": 5,
             "height": 46,
             "chars": [
                 "\uD022"
@@ -219,7 +219,7 @@
         {
             "type": "bitmap",
             "file": "icons:stair_selected.png",
-            "ascent": 3,
+            "ascent": 5,
             "height": 46,
             "chars": [
                 "\uD033"
@@ -237,7 +237,7 @@
         {
             "type": "bitmap",
             "file": "icons:pyramid_selected.png",
-            "ascent": 3,
+            "ascent": 5,
             "height": 46,
             "chars": [
                 "\uD044"

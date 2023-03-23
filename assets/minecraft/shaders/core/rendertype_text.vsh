@@ -183,14 +183,15 @@ void main() {
                 break;
 
             case shield:
-                gl_Position.x += gl_Position.w * -1 + pixel.x * 380;
+                gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * -5;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
+
                 break;
 
             case health:
-                gl_Position.x += gl_Position.w * -1 + pixel.x * 380;
+                gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * -15;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
