@@ -6,6 +6,8 @@
  "overrides": [
   { "predicate": {"custom_model_data": 1}, "model": "item/phone/pp"},
   { "predicate": {"custom_model_data": 2}, "model": "item/hub/vault"},
-  { "predicate": {"custom_model_data": 3}, "model": "item/misc/blank"}
+  { "predicate": {"custom_model_data": 3}, "model": "item/misc/blank"},
+
+  { "predicate": {"custom_model_data": 4}, "model": "item/fort/builds/wall_wood_blue"}
  ]
 }

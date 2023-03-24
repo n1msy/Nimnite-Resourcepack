@@ -125,10 +125,11 @@ void main() {
     }
 
     // [ HUD ]
+    vec2 pixel = guiPixel(ProjMat);
+
     // Text Offsets
     if (Color.r > 0 && Color.g == 0 && Color.b == 0)
     {
-        vec2 pixel = guiPixel(ProjMat);
 
         //gl_Position = ProjMat * ModelViewMat * vec4(vec3(Position.x, Position.y, Position.z), 1.0);
 
@@ -231,8 +232,6 @@ void main() {
     bool map = texture(Sampler0, vec2(0, 0)).a == 254./255.;
     bool marker = texture(Sampler0, texCoord0) * 255 == vec4(173, 152, 193, 102);
     if (map || marker) {
-        vec2 pixel = guiPixel(ProjMat);
-
         gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 0), 1.0);
         gl_Position.x *= -1;
 
@@ -250,8 +249,6 @@ void main() {
         }
     // [ COMPASS ]
     } else if (texture(Sampler0, vec2(0, 0)) * 255 == vec4(9, 185, 21, 102)) {
-        vec2 pixel = guiPixel(ProjMat);
-
         gl_Position = ProjMat * ModelViewMat * vec4(0, 0, 0, 1.0);
         gl_Position.x += gl_Position.w;
         gl_Position.y += pixel.y * 60;
@@ -263,7 +260,6 @@ void main() {
         serverTime = int(Color.b * 255) % 64 / 16;
     // [ PREVIEW CIRCLE ]
     } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(157, 146, 163, 102)) {
-        vec2 pixel = guiPixel(ProjMat);
         xOffset = gl_Position.x / pixel.x;
 
         gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 0), 1.0);
@@ -283,7 +279,6 @@ void main() {
         type = CIRCLE_TYPE;
     // [ HEALTH BAR ]
     } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(163, 93, 35, 58)) {
-        vec2 pixel = guiPixel(ProjMat);
 
         //0 = health
         //1 = shield
@@ -309,6 +304,9 @@ void main() {
     if (type > -1 && Position.z == 0) {
         type = DELETE_TYPE;
     }
+
+    //scaled with screen size
+    //gl_Position.xy *= pos.x;
 
     //ogColor = texture(Sampler0, texCoord0);
 }
