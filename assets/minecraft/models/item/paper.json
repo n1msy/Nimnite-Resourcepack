@@ -8,9 +8,9 @@
   { "predicate": {"custom_model_data": 2}, "model": "item/hub/vault"},
   { "predicate": {"custom_model_data": 3}, "model": "item/misc/blank"},
 
-  { "predicate": {"custom_model_data": 4}, "model": "item/fort/builds/wall_wood_blue"},
-  { "predicate": {"custom_model_data": 5}, "model": "item/fort/builds/floor_wood_blue"},
-  { "predicate": {"custom_model_data": 6}, "model": "item/fort/builds/stair_wood_blue"},
-  { "predicate": {"custom_model_data": 7}, "model": "item/fort/builds/pyramid_wood_blue"}
+  { "predicate": {"custom_model_data": 4}, "model": "item/fort/builds/blueprints/wall_bp"},
+  { "predicate": {"custom_model_data": 5}, "model": "item/fort/builds/blueprints/floor_bp"},
+  { "predicate": {"custom_model_data": 6}, "model": "item/fort/builds/blueprints/stair_bp"},
+  { "predicate": {"custom_model_data": 7}, "model": "item/fort/builds/blueprints/pyramid_bp"}
  ]
 }
