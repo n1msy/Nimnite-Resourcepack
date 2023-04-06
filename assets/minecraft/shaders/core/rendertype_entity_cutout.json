@@ -5,7 +5,7 @@
         "dstrgb": "1-srcalpha"
     },
     "vertex": "border/entity",
-    "fragment": "border/entity",
+    "fragment": "rendertype_entity_cutout",
     "attributes": [
         "Position",
         "Color",
