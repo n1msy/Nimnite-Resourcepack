@@ -94,17 +94,14 @@ void main() {
                     break;
             }
         } else discard;
-        return;
-    } else if (isPost == 2) {
-        fragColor = vec4((xy0.x/xy0.y - xy1.x/xy1.y) / 255., 0, 0, 1);
-        return;
+    } else {
+        vec4 color = texture(Sampler0, texCoord0);
+        if (color.a < 0.1) {
+            discard;
+        }
+        color *= vertexColor * ColorModulator;
+        color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);
+        color *= lightMapColor;
+        fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
     }
-    vec4 color = texture(Sampler0, texCoord0);
-    if (color.a < 0.1) {
-        discard;
-    }
-    color *= vertexColor * ColorModulator;
-    color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);
-    color *= lightMapColor;
-    fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }
