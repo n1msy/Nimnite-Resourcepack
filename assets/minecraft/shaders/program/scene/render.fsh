@@ -20,6 +20,8 @@ flat in int nobjs;
 out vec4 fragColor;
 
 in float borderSize;
+flat in int noBorder;
+
 float borderRadius;
 
 #define AA 1
@@ -165,7 +167,7 @@ void main() {
     rd /= l;
     depth = depth * l;
     //render
-    color += render(ro, rd, min(depth, renderdistance), vec4(0));
+    if (noBorder == 0) color += render(ro, rd, min(depth, renderdistance), vec4(0));
     // alpha blend with maincolor
     if (MainColorMult > 0) color = maincolor * (1 - color.a) + vec4(color.rgb * color.a, color.a);
 

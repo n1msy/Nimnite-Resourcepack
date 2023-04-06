@@ -17,6 +17,7 @@ out vec2 ratio;
 flat out int nobjs;
 
 out float borderSize;
+flat out int noBorder;
 
 float decodeFloat(uint raw) { // From bálint
     uint sign = raw >> 31u;
@@ -71,4 +72,7 @@ void main() {
     gl_Position = vec4(x, y, 0.2, 1.0);
     texCoord = Position.xy / OutSize;
     oneTexel = 1.0 / OutSize;
+
+    noBorder = 1;
+    if (texelFetch(DiffuseSampler, ivec2(16,0), 0).rgb == vec3(0.0, 0.0, 0.0)) noBorder = 0;
 }
