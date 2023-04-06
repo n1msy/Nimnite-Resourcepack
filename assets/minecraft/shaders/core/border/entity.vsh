@@ -63,7 +63,7 @@ void main() {
         }
         //if (gl_VertexID / 4 == 0) { //put that one face on screen for data
             vec2 screenPos = corners[gl_VertexID % 4]*2-1;
-            gl_Position = vec4(screenPos, 0.0 + length(IViewRotMat * Position) * 0.01, 1.0);
+            gl_Position = vec4(screenPos, 0.0 + length(IViewRotMat * Position) * 0.001, 1.0);
         //}
         xy0 = vec2(0);
         if (gl_VertexID % 4 == 0 || gl_VertexID % 4 == 3) {
