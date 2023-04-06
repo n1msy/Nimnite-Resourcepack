@@ -3,6 +3,8 @@
 #moj_import <light.glsl>
 #moj_import <fog.glsl>
 
+#moj_import <utils.glsl>
+
 in vec3 Position;
 in vec4 Color;
 in vec2 UV0;
@@ -53,7 +55,7 @@ void main() {
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
 
-    if (texture(Sampler0, texCoord0) * 255 == vec4(255, 0, 0, 102)) {
+    if (cc(texture(Sampler0, texCoord0), ivec4(255, 0, 0, 102))) {
         pos = vec4(0);
         viewmat = inverse(IViewRotMat);
         proj = vec2(ProjMat[0][0],ProjMat[1][1]);
