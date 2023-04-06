@@ -74,6 +74,15 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:wood_single.png",
+            "ascent": 19,
+            "height": 39,
+            "chars": [
+                "\uA111"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:brick.png",
             "ascent": 40,
             "height": 52,
@@ -92,6 +101,15 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:brick_single.png",
+            "ascent": 40,
+            "height": 52,
+            "chars": [
+                "\uA222"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:metal.png",
             "ascent": 40,
             "height": 52,
@@ -106,6 +124,15 @@
             "height": 52,
             "chars": [
                 "\uA033"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:metal_single.png",
+            "ascent": 40,
+            "height": 52,
+            "chars": [
+                "\uA333"
             ]
         },
         {
