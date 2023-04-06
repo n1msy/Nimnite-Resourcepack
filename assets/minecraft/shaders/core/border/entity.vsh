@@ -55,6 +55,12 @@ void main() {
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
 
+    pos = vec4(0);
+    viewmat = mat3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+    proj = vec2(0);
+    xy0 = vec2(0);
+    xy1 = vec2(0);
+    
     isPost = 0;
     if (cc(texture(Sampler0, texCoord0), ivec4(255, 0, 0, 102))) {
         pos = vec4(0);

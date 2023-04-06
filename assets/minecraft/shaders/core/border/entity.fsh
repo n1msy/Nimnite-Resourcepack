@@ -104,4 +104,7 @@ void main() {
         color *= lightMapColor;
         fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
     }
+
+    //if (isPost == 0) fragColor.rgb = vec3(0, 0, 1);
+
 }
