@@ -145,7 +145,33 @@ void main() {
         //remove at border
         if (any(lessThan(pos/2+0.5, vec2(0.01, 0.01))) || any(greaterThan(pos/2+0.5, vec2(0.99, 0.99)))) discard;
 
-        //fragColor = vec4(1, 0, 0, 1-length(circlePos-pos)/2);
+    } else if (type == FULL_CIRCLE_TYPE) {
+
+        fragColor = vec4(1, 1, 1, 1);
+
+        /*vec2 circlePos = vec2(relX, relY) / 128.; // 1 is 128 blocks
+        vec2 zoomedPos = pos * (1-zoom);
+
+        // distance from line
+        float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
+
+        //circle
+        if (length(circlePos - zoomedPos) < 1 && length(circlePos - zoomedPos) > 0.98) 
+        {
+            //fragColor = vec4(0, 0, stormId/255., 1);
+            fragColor = vec4(1, 1, 1, 1);
+        //line 
+        } 
+        else if (dist < 0.02 && length(circlePos - zoomedPos) > 0.98) 
+        {
+            if (length(circlePos) > length(circlePos - zoomedPos)) 
+            {
+                fragColor = vec4(1, 1, 1, 1);
+            } else
+                discard;
+        } else 
+            discard;*/
+
     } else if (type == HEALTH_TYPE){
 
         //returns 0 to 1

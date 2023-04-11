@@ -277,6 +277,28 @@ void main() {
         stormId = int(round(xOffset))/2 + (c.b / 64) * 4;
 
         type = CIRCLE_TYPE;
+
+    // [ FULL CIRCLE ]
+    } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(109, 78, 129, 105)) {
+        xOffset = gl_Position.x / pixel.x;
+
+        gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 0), 1.0);
+        gl_Position.x += gl_Position.w;
+
+        //gl_Position.x += -pixel.x;
+        gl_Position.y += pixel.y * 360;
+
+        gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * 344;
+        pos = corners[gl_VertexID % 4];
+
+        // read data
+        ivec3 c = ivec3(ogColor.rgb * 255.);
+        relX = c.r + (c.b % 8) * 256 - 1024;
+        relY = c.g + (c.b % 64 / 8) * 256 - 1024;
+        stormId = int(round(xOffset))/2 + (c.b / 64) * 4;
+
+        type = FULL_CIRCLE_TYPE;
+
     // [ HEALTH BAR ]
     } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(163, 93, 35, 58)) {
 
