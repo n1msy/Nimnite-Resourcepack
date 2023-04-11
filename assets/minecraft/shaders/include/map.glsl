@@ -6,6 +6,21 @@ void getInfoFromColor(vec4 color) {
     displayId = int(color.b * 255);
 }
 
+// in blocks
+const float[] stormSizes = float[](
+    1500,
+    900,
+    700,
+    500,
+    300,
+    150,
+    75,
+    50,
+    25,
+    10,
+    5
+);
+
 #define HEALTH_TYPE -2
 #define DELETE_TYPE 0
 #define MAP_TYPE 1

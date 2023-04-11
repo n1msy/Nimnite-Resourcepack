@@ -126,7 +126,8 @@ void main() {
         float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
         //circle
-        if (length(circlePos - zoomedPos) < 1 && length(circlePos - zoomedPos) > 0.98) {
+        float stormSize = stormSizes[stormId] / 128.;
+        if (length(circlePos - zoomedPos) < stormSize && length(circlePos - zoomedPos) > stormSize - 0.02) {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
         //line 
@@ -148,13 +149,14 @@ void main() {
 
     } else if (type == FULL_CIRCLE_TYPE) {
 
-        vec2 circlePos = vec2(relX, relY) / 512.; // 1 is 128 blocks
+        vec2 circlePos = vec2(relX, relY) / 512.; // 1 is 512 blocks
 
         // distance from line
         float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
         //circle
-        if (length(circlePos - pos) < 0.25 && length(circlePos - pos) > 0.24)
+        float stormSize = stormSizes[stormId] / 512.;
+        if (length(circlePos - pos) < stormSize && length(circlePos - pos) > stormSize - 0.01)
         {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
