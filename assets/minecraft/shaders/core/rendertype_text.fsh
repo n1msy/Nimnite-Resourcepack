@@ -148,25 +148,25 @@ void main() {
 
     } else if (type == FULL_CIRCLE_TYPE) {
 
-        vec2 circlePos = vec2(relX, relY) / 128.; // 1 is 128 blocks
+        vec2 circlePos = vec2(relX, relY) / 512.; // 1 is 128 blocks
 
         // distance from line
         float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
         //circle
-        if (length(circlePos - pos) < 3 && length(circlePos - pos) > 0.99) 
+        if (length(circlePos - pos) < 0.25 && length(circlePos - pos) > 0.24)
         {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
         //line 
-        /*} 
-        else if (dist < 0.02 && length(circlePos - zoomedPos) > 0.98) 
+        } 
+        else if (dist < 0.02 && length(circlePos - pos) > 0.98) 
         {
-            if (length(circlePos) > length(circlePos - zoomedPos)) 
+            if (length(circlePos) > length(circlePos - pos)) 
             {
                 fragColor = vec4(1, 1, 1, 1);
             } else
-                discard;*/
+                discard;
         } else 
             discard;
 

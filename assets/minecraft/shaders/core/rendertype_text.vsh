@@ -309,10 +309,9 @@ void main() {
 
         // read data
         ivec3 c = ivec3(ogColor.rgb * 255.);
-        relX = c.r + (c.b % 8) * 256 - 1024;
-        relY = c.g + (c.b % 64 / 8) * 256 - 1024;
-        stormId = int(round(xOffset))/2 + (c.b / 64) * 4;
-
+        relX = c.r + (c.b % 4) * 256;
+        relY = c.g + (c.b % 16 / 4) * 256;
+        stormId = c.b / 16;
         type = FULL_CIRCLE_TYPE;
 
     // [ HEALTH BAR ]
