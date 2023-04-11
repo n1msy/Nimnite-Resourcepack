@@ -243,6 +243,17 @@ void main() {
             gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * mapSize;
             type = MAP_TYPE;
         } else if (marker) {
+            //full map marker
+            //this will only ever break if the player is in the bottom left corner (it'll disappear)
+            //since it's 0,0
+            if (Color.g*255.0 > 0 || Color.b*255 > 0){
+                //full map marker
+                gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 1.0), 1.0);
+                gl_Position.x += gl_Position.w;
+                //gl_Position.x += -pixel.x;
+                gl_Position.y += pixel.y * 396;
+                vec2 center = vec2(Color.gb);
+            }
             gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * 8;
             gl_Position.xy = rotate(gl_Position.xy / pixel.xy, center / pixel.xy, Color.r*PI*2) * pixel.xy;
             type = MARKER_TYPE;
@@ -282,13 +293,14 @@ void main() {
     } else if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(109, 78, 129, 105)) {
         xOffset = gl_Position.x / pixel.x;
 
-        gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 0), 1.0);
+        gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 1.0), 1.0);
         gl_Position.x += gl_Position.w;
 
         //gl_Position.x += -pixel.x;
-        gl_Position.y += pixel.y * 360;
+        gl_Position.y += pixel.y * 396;
 
         gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * 344;
+
         pos = corners[gl_VertexID % 4];
 
         // read data

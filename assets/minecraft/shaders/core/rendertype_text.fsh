@@ -103,7 +103,8 @@ void main() {
         
     } else if (type == MARKER_TYPE) {
         fragColor = texture(Sampler0, texCoord0);
-        if (fragColor * 255 == vec4(173, 152, 193, 102)) discard;
+        //so background of the character is removed too when displayed in full map
+        if (fragColor != vec4(1,1,1,1)) discard;
     } else if (type == COMPASS_TYPE) {
         float tickDelta = fract(GameTime * 24000);
         if (serverTime != int(GameTime * 24000) % 4) tickDelta = 1;
@@ -147,30 +148,27 @@ void main() {
 
     } else if (type == FULL_CIRCLE_TYPE) {
 
-        fragColor = vec4(1, 1, 1, 1);
-
-        /*vec2 circlePos = vec2(relX, relY) / 128.; // 1 is 128 blocks
-        vec2 zoomedPos = pos * (1-zoom);
+        vec2 circlePos = vec2(relX, relY) / 128.; // 1 is 128 blocks
 
         // distance from line
         float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
         //circle
-        if (length(circlePos - zoomedPos) < 1 && length(circlePos - zoomedPos) > 0.98) 
+        if (length(circlePos - pos) < 1 && length(circlePos - pos) > 0.99) 
         {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
         //line 
-        } 
+        /*} 
         else if (dist < 0.02 && length(circlePos - zoomedPos) > 0.98) 
         {
             if (length(circlePos) > length(circlePos - zoomedPos)) 
             {
                 fragColor = vec4(1, 1, 1, 1);
             } else
-                discard;
+                discard;*/
         } else 
-            discard;*/
+            discard;
 
     } else if (type == HEALTH_TYPE){
 
