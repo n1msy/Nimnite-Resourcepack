@@ -248,11 +248,15 @@ void main() {
             //since it's 0,0
             if (Color.g*255.0 > 0 || Color.b*255 > 0){
                 //full map marker
+                //center
                 gl_Position = ProjMat * ModelViewMat * vec4(vec3(0, 0, 1.0), 1.0);
                 gl_Position.x += gl_Position.w;
-                //gl_Position.x += -pixel.x;
                 gl_Position.y += pixel.y * 396;
-                vec2 center = vec2(Color.gb);
+                //top left corner
+                gl_Position.xy -= pixel.xy * 344;
+                //actual position
+                gl_Position.xy += pixel.xy * 688 * Color.gb;
+                center = gl_Position.xy;
             }
             gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * 8;
             gl_Position.xy = rotate(gl_Position.xy / pixel.xy, center / pixel.xy, Color.r*PI*2) * pixel.xy;

@@ -154,7 +154,7 @@ void main() {
         float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
         //circle
-        if (length(circlePos - pos) < 1 && length(circlePos - pos) > 0.99) 
+        if (length(circlePos - pos) < 3 && length(circlePos - pos) > 0.99) 
         {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
