@@ -84,6 +84,9 @@ const int player_2 = 62;
 const int player_3 = 63;
 const int player_4 = 64;
 
+//yaw (top UI)
+const int yaw = 65;
+
 //Each offset has one dedicated color (?)
 vec3 getColor(int i) {
   switch (i) {
@@ -122,6 +125,10 @@ void main() {
         vertexColor = texelFetch(Sampler2, UV2 / 16, 0); // remove color from no shadow marker
     } else if (Color == vec4(19/255., 23/255., 9/255., Color.a) && Position.z == 0) {
         vertexColor = vec4(0); // remove shadow
+    } else if (Color == vec4(16/255., 0., 0., Color.a) && Position.y > 22){
+        //remove the color of the shadow from the yaw number text
+        //make sure w others it's fine to do this
+        vertexColor = vec4(0);
     }
 
     // [ HUD ]
@@ -135,6 +142,14 @@ void main() {
 
         switch (int(Color.r*255))
         {
+
+            case yaw:
+                gl_Position.x += pixel.x * -2;
+                gl_Position.y += gl_Position.w * pixel.y * -38;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+
+                break;
 
             case mat_wood:
                 gl_Position.x += pixel.x * 365;
