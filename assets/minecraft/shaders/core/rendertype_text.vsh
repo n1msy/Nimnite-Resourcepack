@@ -246,6 +246,7 @@ void main() {
             //full map marker
             //this will only ever break if the player is in the bottom left corner (it'll disappear)
             //since it's 0,0
+            float rot = Color.r;
             if (Color.g*255.0 > 0 || Color.b*255 > 0){
                 //full map marker
                 //center
@@ -255,11 +256,15 @@ void main() {
                 //top left corner
                 gl_Position.xy -= pixel.xy * 344;
                 //actual position
-                gl_Position.xy += pixel.xy * 688 * Color.gb;
+                ivec3 c = ivec3(Color.rgb);
+                float x = Color.g + (c.r % 8) * 256;
+                float y = Color.b + (c.r % 8 / 8) * 256;
+                gl_Position.xy += pixel.xy * 688 * vec2(x,y);
                 center = gl_Position.xy;
+                rot = rot*8;
             }
             gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * 8;
-            gl_Position.xy = rotate(gl_Position.xy / pixel.xy, center / pixel.xy, Color.r*PI*2) * pixel.xy;
+            gl_Position.xy = rotate(gl_Position.xy / pixel.xy, center / pixel.xy, rot*PI*4) * pixel.xy;
             type = MARKER_TYPE;
         }
     // [ COMPASS ]

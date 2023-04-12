@@ -126,12 +126,12 @@ void main() {
         float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
         //circle
-        float stormSize = stormSizes[stormId] / 128.;
+        float stormSize = stormSizes[stormId-11] / 128.;
         if (length(circlePos - zoomedPos) < stormSize && length(circlePos - zoomedPos) > stormSize - 0.02) {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
         //line 
-        } else if (dist < 0.02 && length(circlePos - zoomedPos) > 0.98) {
+        } else if (dist < 0.02 && length(circlePos - zoomedPos) > stormSize-0.02) {
             if (length(circlePos) > length(circlePos - zoomedPos)) {
                 fragColor = vec4(1, 1, 1, 1);
             } else
@@ -161,11 +161,8 @@ void main() {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
         //line 
-        } 
-        else if (dist < 0.02 && length(circlePos - pos) > 0.98) 
-        {
-            if (length(circlePos) > length(circlePos - pos)) 
-            {
+        } else if (dist < 0.007 && length(circlePos - pos) > stormSize-0.01) {
+            if (length(circlePos) < length(circlePos - pos)) {
                 fragColor = vec4(1, 1, 1, 1);
             } else
                 discard;
