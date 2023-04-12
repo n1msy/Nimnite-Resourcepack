@@ -126,7 +126,7 @@ void main() {
         float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
         //circle
-        float stormSize = stormSizes[stormId-11] / 128.;
+        float stormSize = stormSizes[stormId] / 128.;
         if (length(circlePos - zoomedPos) < stormSize && length(circlePos - zoomedPos) > stormSize - 0.02) {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
@@ -148,11 +148,7 @@ void main() {
         if (any(lessThan(pos/2+0.5, vec2(0.01, 0.01))) || any(greaterThan(pos/2+0.5, vec2(0.99, 0.99)))) discard;
 
     } else if (type == FULL_CIRCLE_TYPE) {
-
         vec2 circlePos = vec2(relX, relY) / 512.; // 1 is 512 blocks
-
-        // distance from line
-        float dist = abs((circlePos.y-0)*pos.x-(circlePos.x-0)*pos.y+circlePos.x*0-circlePos.y*0)/sqrt(square(circlePos.y-0)+square(circlePos.x-0));
 
         //circle
         float stormSize = stormSizes[stormId] / 512.;
@@ -160,25 +156,19 @@ void main() {
         {
             //fragColor = vec4(0, 0, stormId/255., 1);
             fragColor = vec4(1, 1, 1, 1);
-        //line 
-        } else if (dist < 0.007 && length(circlePos - pos) > stormSize-0.01) {
-            if (length(circlePos) < length(circlePos - pos)) {
-                fragColor = vec4(1, 1, 1, 1);
-            } else
-                discard;
         } else 
             discard;
 
-    } else if (type == HEALTH_TYPE){
+    } else if (type == HEALTH_TYPE) {
 
         //returns 0 to 1
         float health = ogColor.r;
         vec4 barColor;
 
-        if (ogColor.b*255. == 0.){
+        if (ogColor.b*255. == 0.) {
             //health color
             barColor = vec4(90/255.,196/255.,55/255.,1);
-        } else{
+        } else {
             //shield color
             barColor = vec4(39/255.,158/255.,214/255.,1);
         }
@@ -189,7 +179,7 @@ void main() {
         if (fragColor.a == 58/255.) discard;
 
         //health bar
-        if (pos.x <= health && fragColor.a != 0){
+        if (pos.x <= health && fragColor.a != 0) {
             fragColor = barColor;
         }
 

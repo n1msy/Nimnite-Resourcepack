@@ -256,15 +256,15 @@ void main() {
                 //top left corner
                 gl_Position.xy -= pixel.xy * 344;
                 //actual position
-                ivec3 c = ivec3(Color.rgb);
-                float x = Color.g + (c.r % 8) * 256;
-                float y = Color.b + (c.r % 8 / 8) * 256;
-                gl_Position.xy += pixel.xy * 688 * vec2(x,y);
+                ivec3 c = ivec3(ogColor.rgb * 255);
+                float x = c.g + c.r % 128 / 64 * 256;
+                float y = c.b + c.r / 128 * 256;
+                gl_Position.xy += pixel.xy * 688 * vec2(x / 512., y / 512.);
                 center = gl_Position.xy;
-                rot = rot*8;
+                rot = c.r % 64 / 64.;
             }
             gl_Position.xy += pixel.xy * corners[gl_VertexID % 4] * 8;
-            gl_Position.xy = rotate(gl_Position.xy / pixel.xy, center / pixel.xy, rot*PI*4) * pixel.xy;
+            gl_Position.xy = rotate(gl_Position.xy / pixel.xy, center / pixel.xy, rot*PI*2) * pixel.xy;
             type = MARKER_TYPE;
         }
     // [ COMPASS ]
