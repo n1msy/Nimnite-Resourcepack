@@ -3,8 +3,8 @@
         {
             "type": "bitmap",
             "file": "muzzle_flash:1.png",
-            "ascent": 0,
-            "height": 64,
+            "ascent": 10,
+            "height": 16,
             "chars": [
                 "\u0001"
             ]
@@ -12,8 +12,8 @@
         {
             "type": "bitmap",
             "file": "muzzle_flash:2.png",
-            "ascent": 0,
-            "height": 64,
+            "ascent": 10,
+            "height": 16,
             "chars": [
                 "\u0002"
             ]
@@ -21,8 +21,8 @@
         {
             "type": "bitmap",
             "file": "muzzle_flash:3.png",
-            "ascent": 0,
-            "height": 64,
+            "ascent": 10,
+            "height": 16,
             "chars": [
                 "\u0003"
             ]
