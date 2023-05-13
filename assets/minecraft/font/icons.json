@@ -281,11 +281,29 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:light.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE011"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:medium.png",
             "ascent": 0,
             "height": 16,
             "chars": [
                 "\uE002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:medium.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE022"
             ]
         },
         {
@@ -299,6 +317,15 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:heavy.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE033"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:shells.png",
             "ascent": 0,
             "height": 16,
@@ -308,11 +335,29 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:shells.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE044"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:rocket.png",
             "ascent": 0,
             "height": 16,
             "chars": [
                 "\uE005"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:rocket.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE055"
             ]
         }
     ]
