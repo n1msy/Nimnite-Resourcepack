@@ -28,7 +28,7 @@ void main() {
 
     if (color.a == 0.0) discard;
 
-    /*
+
     //custom tooltip
     if (position.z > TOOLTIP_Z_MIN && position.z < TOOLTIP_Z_MAX) //capture the tooltip
     {
@@ -39,14 +39,14 @@ void main() {
         //main outline
         if (color.r*255 > 38)
         {
-            color = vec4(54,214,158,255)/255.;
+            color = vec4(78,212,252,255)/255.;
         }
         //fill
         else
         {
-            color = vec4(41,160,119,195)/255.;
+            color = vec4(43,153,255,195)/255.;
         }
-    }*/
+    }
 
     // This is the method I've used to capture the sidebar background
     // We just make it go poof!
