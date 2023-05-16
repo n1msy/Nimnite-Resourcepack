@@ -87,6 +87,9 @@ const int player_4 = 64;
 //yaw (top UI)
 const int yaw = 65;
 
+//medkit, shields, etc
+const int load = 66;
+
 //Each offset has one dedicated color (?)
 vec3 getColor(int i) {
   switch (i) {
@@ -232,6 +235,12 @@ void main() {
             case build:
                 gl_Position.x += pixel.x * 117;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 175;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case load:
+                gl_Position.y += pixel.y * -50;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
