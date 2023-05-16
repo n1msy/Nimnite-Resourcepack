@@ -317,11 +317,20 @@
         },
         {
             "type": "bitmap",
-            "file": "icons:light_border.png",
+            "file": "icons:light.png",
             "ascent": 12,
             "height": 16,
             "chars": [
                 "\uE011"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:light_border.png",
+            "ascent": 12,
+            "height": 16,
+            "chars": [
+                "\uE111"
             ]
         },
         {
@@ -335,11 +344,20 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:medium.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE022"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:medium_border.png",
             "ascent": 12,
             "height": 16,
             "chars": [
-                "\uE022"
+                "\uE122"
             ]
         },
         {
@@ -353,11 +371,20 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:heavy.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE033"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:heavy_border.png",
             "ascent": 12,
             "height": 16,
             "chars": [
-                "\uE033"
+                "\uE133"
             ]
         },
         {
@@ -371,11 +398,20 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:shells.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE044"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:shells_border.png",
             "ascent": 12,
             "height": 16,
             "chars": [
-                "\uE044"
+                "\uE144"
             ]
         },
         {
@@ -389,11 +425,20 @@
         },
         {
             "type": "bitmap",
+            "file": "icons:rocket.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\uE055"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "icons:rockets_border.png",
             "ascent": 12,
             "height": 16,
             "chars": [
-                "\uE055"
+                "\uE155"
             ]
         }
     ]
