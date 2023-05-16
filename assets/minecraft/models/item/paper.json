@@ -21,6 +21,7 @@
   { "predicate": {"custom_model_data": 13}, "model": "item/fort/icons/medium"},
   { "predicate": {"custom_model_data": 14}, "model": "item/fort/icons/heavy"},
   { "predicate": {"custom_model_data": 15}, "model": "item/fort/icons/shells"},
-  { "predicate": {"custom_model_data": 16}, "model": "item/fort/icons/rockets"}
+  { "predicate": {"custom_model_data": 16}, "model": "item/fort/icons/rockets"},
+  { "predicate": {"custom_model_data": 17}, "model": "item/fort/icons/blank"}
  ]
 }
