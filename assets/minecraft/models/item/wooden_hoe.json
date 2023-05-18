@@ -6,7 +6,8 @@
   "overrides": [
    { "predicate": {"custom_model_data": 1}, "model": "item/fort/guns/pump_shotgun"},
    { "predicate": {"custom_model_data": 2}, "model": "item/fort/guns/assault_rifle"},
-   { "predicate": {"custom_model_data": 3}, "model": "item/fort/guns/tactical_smg"},
-   { "predicate": {"custom_model_data": 4}, "model": "item/fort/guns/smg"}
+   { "predicate": {"custom_model_data": 3}, "model": "item/fort/guns/scar"},
+   { "predicate": {"custom_model_data": 4}, "model": "item/fort/guns/tactical_smg"},
+   { "predicate": {"custom_model_data": 5}, "model": "item/fort/guns/smg"}
   ]
  }
