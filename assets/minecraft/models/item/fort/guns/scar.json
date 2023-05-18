@@ -499,6 +499,9 @@
 			"rotation": [164, 89.48, -158.63],
 			"translation": [-4, 3.25, -2.25],
 			"scale": [0.69, 0.85273, 0.9]
+		},
+		"ground": {
+			"translation": [0, 6.5, 0]
 		}
 	},
 	"groups": [
