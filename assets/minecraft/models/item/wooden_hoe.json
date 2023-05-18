@@ -5,9 +5,14 @@
   },
   "overrides": [
    { "predicate": {"custom_model_data": 1}, "model": "item/fort/guns/pump_shotgun"},
-   { "predicate": {"custom_model_data": 2}, "model": "item/fort/guns/assault_rifle"},
-   { "predicate": {"custom_model_data": 3}, "model": "item/fort/guns/scar"},
-   { "predicate": {"custom_model_data": 4}, "model": "item/fort/guns/tactical_smg"},
-   { "predicate": {"custom_model_data": 5}, "model": "item/fort/guns/smg"}
+   { "predicate": {"custom_model_data": 2}, "model": "item/fort/guns/pump_shotgun_scoped"},
+   { "predicate": {"custom_model_data": 3}, "model": "item/fort/guns/assault_rifle"},
+   { "predicate": {"custom_model_data": 4}, "model": "item/fort/guns/assault_rifle_scoped"},
+   { "predicate": {"custom_model_data": 5}, "model": "item/fort/guns/scar"},
+   { "predicate": {"custom_model_data": 6}, "model": "item/fort/guns/scar_scoped"},
+   { "predicate": {"custom_model_data": 7}, "model": "item/fort/guns/tactical_smg"},
+   { "predicate": {"custom_model_data": 8}, "model": "item/fort/guns/tactical_smg_scoped"},
+   { "predicate": {"custom_model_data": 9}, "model": "item/fort/guns/smg"},
+   { "predicate": {"custom_model_data": 10}, "model": "item/fort/guns/smg_scoped"}
   ]
  }
