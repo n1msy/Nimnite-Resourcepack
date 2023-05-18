@@ -8,6 +8,10 @@
    { "predicate": {"custom_model_data": 2}, "model": "item/fort/guns/medium_ammo"},
    { "predicate": {"custom_model_data": 3}, "model": "item/fort/guns/heavy_ammo"},
    { "predicate": {"custom_model_data": 4}, "model": "item/fort/guns/shells"},
-   { "predicate": {"custom_model_data": 5}, "model": "item/fort/guns/rockets"}
+   { "predicate": {"custom_model_data": 5}, "model": "item/fort/guns/rockets"},
+   { "predicate": {"custom_model_data": 6}, "model": "item/fort/items/grenade"},
+   { "predicate": {"custom_model_data": 7}, "model": "item/fort/items/impulse_grenade"},
+   { "predicate": {"custom_model_data": 8}, "model": "item/fort/items/bandages"},
+   { "predicate": {"custom_model_data": 9}, "model": "item/fort/items/med_kit"}
   ]
  }
