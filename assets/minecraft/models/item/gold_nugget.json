@@ -12,6 +12,7 @@
    { "predicate": {"custom_model_data": 6}, "model": "item/fort/items/grenade"},
    { "predicate": {"custom_model_data": 7}, "model": "item/fort/items/impulse_grenade"},
    { "predicate": {"custom_model_data": 8}, "model": "item/fort/items/bandages"},
-   { "predicate": {"custom_model_data": 9}, "model": "item/fort/items/med_kit"}
+   { "predicate": {"custom_model_data": 9}, "model": "item/fort/items/med_kit"},
+   { "predicate": {"custom_model_data": 10}, "model": "item/fort/items/pencil"}
   ]
  }
