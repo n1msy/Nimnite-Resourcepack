@@ -120,8 +120,8 @@
         {
             "type": "bitmap",
             "file": "icons:brick_single.png",
-            "ascent": 40,
-            "height": 52,
+            "ascent": 11,
+            "height": 16,
             "chars": [
                 "\uA222"
             ]
@@ -156,8 +156,8 @@
         {
             "type": "bitmap",
             "file": "icons:metal_single.png",
-            "ascent": 40,
-            "height": 52,
+            "ascent": 11,
+            "height": 16,
             "chars": [
                 "\uA333"
             ]
