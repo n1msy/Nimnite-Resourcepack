@@ -86,8 +86,8 @@
 	],
 	"display": {
 		"ground": {
-			"translation": [0, 7.25, 0],
-			"scale": [1.25, 1.25, 1.25]
+			"translation": [0, 7, 0],
+			"scale": [1.2, 1.2, 1.2]
 		}
 	},
 	"groups": [
