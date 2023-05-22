@@ -96,6 +96,13 @@ const int build_toggle = 68;
 const int inv_keys = 69;
 const int inv_toggle = 70;
 
+//build text guide
+const int build_text = 71;
+const int build_brackets = 72;
+const int build_left = 73;
+const int build_right = 74;
+const int build_drop = 75
+;
 //Each offset has one dedicated color (?)
 vec3 getColor(int i) {
   switch (i) {
@@ -113,6 +120,22 @@ vec3 getColor(int i) {
         return vec3(209, 255, 196)/255.;
         break;
 
+    case build_brackets:
+        return vec3(170, 170, 170)/255.;
+        break;
+
+    case build_left:
+        return vec3(255, 85, 85)/255.;
+        break;
+
+    case build_right:
+        return vec3(85, 85, 255)/255.;
+        break;
+
+    case build_drop:
+        return vec3(255, 255, 85)/255.;
+        break;
+
     default:
         return vec3(1, 1, 1);
         break;
@@ -128,6 +151,8 @@ void main() {
     vertexColor = Color * texelFetch(Sampler2, UV2 / 16, 0);
     texCoord0 = UV0;
 
+    vec2 pixel = guiPixel(ProjMat);
+
     //SHADOW REMOVER Cred: PuckiSilver
     //Use this color code to remove it: #4e5c24
     if (Color == vec4(78/255., 92/255., 36/255., Color.a) && Position.z == 0.03) {
@@ -139,9 +164,12 @@ void main() {
         //make sure w others it's fine to do this
         vertexColor = vec4(0);
     }
+    //move the actionbar's shadows up
+    else if (Color == vec4(18/255., 0., 0., Color.a) && Position.y < 450 || (Color == vec4(17/255., 0., 0., Color.a) && Position.y < 450)){
+        gl_Position.y += pixel.y * -50;
+    }
 
     // [ HUD ]
-    vec2 pixel = guiPixel(ProjMat);
 
     // Text Offsets
     if (Color.r > 0 && Color.g == 0 && Color.b == 0)
@@ -218,7 +246,7 @@ void main() {
 
             case shield: case shield_max:
                 gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
-                gl_Position.y += gl_Position.w * -1 - pixel.y * -5;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -10;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
 
@@ -226,7 +254,7 @@ void main() {
 
             case health: case health_max:
                 gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
-                gl_Position.y += gl_Position.w * -1 - pixel.y * -15;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -20;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
@@ -277,7 +305,11 @@ void main() {
 
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
+            case build_text: case build_brackets: case build_left: case build_right: case build_drop:
+                gl_Position.y += pixel.y * -50;
 
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
 
             default:
                 break;
@@ -387,9 +419,9 @@ void main() {
         if (Color.g*255 == 0.){
             gl_Position.x += gl_Position.w * -1 + pixel.x * 390;
             if (Color.b*255. == 0.){
-                gl_Position.y += gl_Position.w * -1 - pixel.y * -15;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -20;
             } else{
-                gl_Position.y += gl_Position.w * -1 - pixel.y * -5;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -10;
             }
         //small corner health bar
         } else{
