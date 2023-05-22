@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "block/texture",
-		"1": "block/texture",
-		"particle": "block/texture"
+		"0": "block/interactable/chest/1",
+		"1": "block/interactable/chest/2",
+		"particle": "block/interactable/chest/1"
 	},
 	"elements": [
 		{
@@ -320,6 +320,9 @@
 		}
 	],
 	"display": {
+		"ground": {
+			"translation": [0, 4.5, 0]
+		},
 		"head": {
 			"translation": [0, -28.5, 0],
 			"scale": [2, 2, 2]
