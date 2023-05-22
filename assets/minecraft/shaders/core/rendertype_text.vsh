@@ -90,6 +90,12 @@ const int yaw = 65;
 //medkit, shields, etc
 const int load = 66;
 
+const int build_keys = 67;
+const int build_toggle = 68;
+
+const int inv_keys = 69;
+const int inv_toggle = 70;
+
 //Each offset has one dedicated color (?)
 vec3 getColor(int i) {
   switch (i) {
@@ -177,21 +183,21 @@ void main() {
 
             case time:
                 gl_Position.x += pixel.x * 332;
-                gl_Position.y += gl_Position.w * 1 - pixel.y * -315;
+                gl_Position.y += gl_Position.w * 1 - pixel.y * -328;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case alive:
                 gl_Position.x += pixel.x * 438;
-                gl_Position.y += gl_Position.w * 1 - pixel.y * -297;
+                gl_Position.y += gl_Position.w * 1 - pixel.y * -310;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case kills:
                 gl_Position.x += pixel.x * 542;
-                gl_Position.y += gl_Position.w * 1 - pixel.y * -279;
+                gl_Position.y += gl_Position.w * 1 - pixel.y * -293;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
@@ -244,6 +250,34 @@ void main() {
 
                 vertexColor.rgb = getColor(int(Color.r*255));
                 break;
+
+            case build_keys:
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 220;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case build_toggle:
+                gl_Position.x += gl_Position.w * pixel.x * 76;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 155;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case inv_keys:
+                gl_Position.x += gl_Position.w * pixel.x * -15;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * -17;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
+            case inv_toggle:
+                gl_Position.x += gl_Position.w * pixel.x * -25;
+                gl_Position.y += gl_Position.w * -1 - pixel.y * 49;
+
+                vertexColor.rgb = getColor(int(Color.r*255));
+                break;
+
 
             default:
                 break;
