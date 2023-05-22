@@ -293,7 +293,7 @@ void main() {
                 break;
 
             case inv_keys:
-                gl_Position.x += gl_Position.w * pixel.x * -15;
+                gl_Position.x += gl_Position.w * pixel.x * -29;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * -17;
 
                 vertexColor.rgb = getColor(int(Color.r*255));
