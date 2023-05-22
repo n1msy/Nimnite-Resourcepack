@@ -9,8 +9,8 @@
     },
     {
       "type": "bitmap",
-      "file": "minecraft:font/ascii.png",
-      "ascent": 8,
+      "file": "minecraft:font/ascii_capital.png",
+      "ascent": 7,
       "height": 8,
       "chars": [
         "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
