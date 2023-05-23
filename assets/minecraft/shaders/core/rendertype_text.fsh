@@ -63,6 +63,9 @@ void main() {
     // Remove sidebar background and red text (the rest is removed in position_color.fsh)
     if((isScoreboard(fragColor)) && ((ScreenSize.x - gl_FragCoord.x) < 36)) discard;
 
+    //chest load
+    //if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(137, 97, 160, 82)) discard;
+
     // map
     if (type == MAP_TYPE) {
         getInfoFromColor(ogColor);
