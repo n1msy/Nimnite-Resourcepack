@@ -25,6 +25,10 @@
    { "predicate": {"custom_model_data": 19}, "model": "item/fort/guns/grenade_launcher_scoped"},
    { "predicate": {"custom_model_data": 20}, "model": "item/fort/guns/rocket_launcher"},
    { "predicate": {"custom_model_data": 21}, "model": "item/fort/guns/rocket_launcher_scoped"},
-   { "predicate": {"custom_model_data": 22}, "model": "item/fort/guns/rocket_launcher_empty"}
+   { "predicate": {"custom_model_data": 22}, "model": "item/fort/guns/rocket_launcher_empty"},
+   { "predicate": {"custom_model_data": 23}, "model": "item/fort/guns/tactical_shotgun"},
+   { "predicate": {"custom_model_data": 24}, "model": "item/fort/guns/tactical_shotgun_scoped"},
+   { "predicate": {"custom_model_data": 28}, "model": "item/fort/guns/famas"},
+   { "predicate": {"custom_model_data": 29}, "model": "item/fort/guns/famas_scoped"}
   ]
  }
