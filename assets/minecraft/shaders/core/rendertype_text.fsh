@@ -189,5 +189,16 @@ void main() {
         //remove the corner encoded pixels
         if (fragColor.a == 58/255.) discard;
 
+    } else if (type == CHEST_LOAD_TYPE){
+        //progress
+        float progress = ((ogColor.r) * 57)- 1;
+
+        fragColor = vec4(1,1,1,1);
+
+        if (pos.y > -0.98) discard;
+
+        //x goes from -1 to 1
+        if (pos.x > progress) discard;
+
     }
 }

@@ -21,6 +21,7 @@ const float[] stormSizes = float[](
     5
 );
 
+#define CHEST_LOAD_TYPE -3
 #define HEALTH_TYPE -2
 #define DELETE_TYPE 0
 #define MAP_TYPE 1

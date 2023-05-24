@@ -440,6 +440,15 @@
             "chars": [
                 "\uE155"
             ]
+        },
+        {
+            "type": "bitmap",
+            "file": "icons:chest_bar.png",
+            "ascent": -2,
+            "height": 92,
+            "chars": [
+                "\u0008"
+            ]
         }
     ]
 }

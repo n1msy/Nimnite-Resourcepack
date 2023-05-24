@@ -435,6 +435,14 @@ void main() {
         pos = (corners[gl_VertexID % 4] / 2.) + 0.5;
         type = HEALTH_TYPE;
     }
+    // [ CHEST LOAD BAR]
+    if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(137, 97, 160, 82)){
+        //gl_Position.x = 0.5;
+        //gl_Position.y += gl_Position.w - pixel.y * -20;
+        //pos = (corners[gl_VertexID % 4] / 2.) + 0.5;
+        pos = corners[gl_VertexID % 4];
+        type = CHEST_LOAD_TYPE;
+    }
 
     if (type > -1 && Position.z == 0) {
         type = DELETE_TYPE;

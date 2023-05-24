@@ -18,6 +18,7 @@
    { "predicate": {"custom_model_data": 12}, "model": "item/fort/items/big_shield"},
    { "predicate": {"custom_model_data": 13}, "model": "item/fort/items/grenade_sideways"},
    { "predicate": {"custom_model_data": 14}, "model": "item/fort/items/rocket"},
-   { "predicate": {"custom_model_data": 15}, "model": "item/fort/interactable/chest"}
+   { "predicate": {"custom_model_data": 15}, "model": "item/fort/interactable/chest"},
+   { "predicate": {"custom_model_data": 16}, "model": "item/fort/interactable/chest_open"}
   ]
  }
