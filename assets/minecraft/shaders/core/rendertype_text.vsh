@@ -101,8 +101,8 @@ const int build_text = 71;
 const int build_brackets = 72;
 const int build_left = 73;
 const int build_right = 74;
-const int build_drop = 75
-;
+const int build_drop = 75;
+
 //Each offset has one dedicated color (?)
 vec3 getColor(int i) {
   switch (i) {
@@ -159,13 +159,13 @@ void main() {
         vertexColor = texelFetch(Sampler2, UV2 / 16, 0); // remove color from no shadow marker
     } else if (Color == vec4(19/255., 23/255., 9/255., Color.a) && Position.z == 0) {
         vertexColor = vec4(0); // remove shadow
-    } else if (Color == vec4(16/255., 0., 0., Color.a) && Position.y > 22){
+    } else if (Color == vec4(16/255., 0., 0., Color.a) && Position.y > 22) {
         //remove the color of the shadow from the yaw number text
         //make sure w others it's fine to do this
         vertexColor = vec4(0);
     }
     //move the actionbar's shadows up
-    else if (Color == vec4(18/255., 0., 0., Color.a) && Position.y < 450 || (Color == vec4(17/255., 0., 0., Color.a) && Position.y < 450)){
+    else if (Color == vec4(18/255., 0., 0., Color.a) && Position.y < 450 || (Color == vec4(17/255., 0., 0., Color.a) && Position.y < 450)) {
         gl_Position.y += pixel.y * -50;
     }
 
@@ -174,149 +174,107 @@ void main() {
     // [ HUD ]
 
     // Text Offsets
-    if (Color.r > 0 && Color.g == 0 && Color.b == 0)
-    {
+    if (Color.r > 0 && Color.g == 0 && Color.b == 0) {
 
-        //gl_Position = ProjMat * ModelViewMat * vec4(vec3(Position.x, Position.y, Position.z), 1.0);
-
-        switch (int(Color.r*255))
-        {
-
+        switch (int(Color.r*255)) {
             case yaw:
                 gl_Position.x += pixel.x * -2;
-                gl_Position.y += gl_Position.w * pixel.y * -38;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
-
+                gl_Position.y += pixel.y * -38;
                 break;
 
             case mat_wood:
                 gl_Position.x += pixel.x * 764;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 304;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case mat_brick:
                 gl_Position.x += pixel.x * 844;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 322;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case mat_metal:
                 gl_Position.x += pixel.x * 924;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 340;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case time:
                 gl_Position.x += pixel.x * 728;
                 gl_Position.y += gl_Position.w * 1 - pixel.y * -328;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case alive:
                 gl_Position.x += pixel.x * 834;
                 gl_Position.y += gl_Position.w * 1 - pixel.y * -310;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case kills:
                 gl_Position.x += pixel.x * 938;
                 gl_Position.y += gl_Position.w * 1 - pixel.y * -293;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case player_1:
                 gl_Position.x += gl_Position.w * -2 + pixel.x * 1056;
                 gl_Position.y += gl_Position.w - pixel.y * -20;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case ammo:
                 gl_Position.x += gl_Position.w * -1 + pixel.x * 940;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 60;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case shield: case shield_max:
                 gl_Position.x += gl_Position.w * -1 + pixel.x * 791.5;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * -10;
 
-                vertexColor.rgb = getColor(int(Color.r*255));
-
                 break;
 
             case health: case health_max:
                 gl_Position.x += gl_Position.w * -1 + pixel.x * 791.5;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * -20;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case inv:
                 gl_Position.x += pixel.x * 411;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 75;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case build:
                 gl_Position.x += pixel.x * 513;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 175;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case load:
                 gl_Position.y += pixel.y * -50;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case build_keys:
-                gl_Position.x += gl_Position.w * pixel.x * 621;
+                gl_Position.x += pixel.x * 621;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 220;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case build_toggle:
-                gl_Position.x += gl_Position.w * pixel.x * 472;
+                gl_Position.x += pixel.x * 472;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 155;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case inv_keys:
-                gl_Position.x += gl_Position.w * pixel.x * 533;
+                gl_Position.x += pixel.x * 533;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * -17;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             case inv_toggle:
-                gl_Position.x += gl_Position.w * pixel.x * 371;
+                gl_Position.x += pixel.x * 371;
                 gl_Position.y += gl_Position.w * -1 - pixel.y * 49;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
+            
             case build_text: case build_brackets: case build_left: case build_right: case build_drop:
                 gl_Position.y += pixel.y * -50;
-
-                vertexColor.rgb = getColor(int(Color.r*255));
                 break;
 
             default:
                 break;
         }
+        vertexColor.rgb = getColor(int(Color.r*255));
 
     }
 
