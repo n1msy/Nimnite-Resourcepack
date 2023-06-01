@@ -28,6 +28,8 @@
    { "predicate": {"custom_model_data": 22}, "model": "item/fort/guns/rocket_launcher_empty"},
    { "predicate": {"custom_model_data": 23}, "model": "item/fort/guns/tactical_shotgun"},
    { "predicate": {"custom_model_data": 24}, "model": "item/fort/guns/tactical_shotgun_scoped"},
+   { "predicate": {"custom_model_data": 26}, "model": "item/fort/guns/burst_assault_rifle"},
+   { "predicate": {"custom_model_data": 27}, "model": "item/fort/guns/burst_assault_rifle_scoped"},
    { "predicate": {"custom_model_data": 28}, "model": "item/fort/guns/famas"},
    { "predicate": {"custom_model_data": 29}, "model": "item/fort/guns/famas_scoped"}
   ]
