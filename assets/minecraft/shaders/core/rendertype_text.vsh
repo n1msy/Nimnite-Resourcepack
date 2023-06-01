@@ -175,7 +175,7 @@ void main() {
 
     // Text Offsets
     if (Color.r > 0 && Color.g == 0 && Color.b == 0) {
-
+        vertexColor.rgb = getColor(int(Color.r*255));
         switch (int(Color.r*255)) {
             case yaw:
                 gl_Position.x += pixel.x * -2;
@@ -272,10 +272,9 @@ void main() {
                 break;
 
             default:
+                vertexColor = vec4(vec3(0), 1.0);
                 break;
         }
-        vertexColor.rgb = getColor(int(Color.r*255));
-
     }
 
     // [ MAP ]
