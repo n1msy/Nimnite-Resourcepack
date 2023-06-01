@@ -169,7 +169,9 @@ void main() {
         gl_Position.y += pixel.y * -50;
     }
 
-    //if (ivec4(texture(Sampler0, texCoord0) * 255) == ivec4(137, 97, 160, 82))
+    if (vertexColor.a == 0) {
+        return;
+    }
 
     // [ HUD ]
 
