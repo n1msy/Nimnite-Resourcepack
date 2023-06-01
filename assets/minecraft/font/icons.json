@@ -453,7 +453,7 @@
         {
             "type": "bitmap",
             "file": "icons:weak_spot.png",
-            "ascent": 18.5,
+            "ascent": 13,
             "height": 32,
             "chars": [
                 "\u0009"
