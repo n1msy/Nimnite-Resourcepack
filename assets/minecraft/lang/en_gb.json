@@ -56,7 +56,7 @@
   "key.keyboard.unknown": "?",
   "key.keyboard.up": "⇧",
   "key.mouse": "%1$sB",
-  "key.mouse.left": "L-Mouse",
-  "key.mouse.middle": "M-Mouse",
-  "key.mouse.right": "R-Mouse"
+  "key.mouse.left": "LMB",
+  "key.mouse.middle": "MMB",
+  "key.mouse.right": "RMB"
 }
